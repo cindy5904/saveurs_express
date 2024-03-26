@@ -1,13 +1,13 @@
-const { Restaurant } = require('../config/database');
+const { Restaurant } = require('../config/db');
 
 const restaurantController = {
     createRestaurant: async function (req, res) {
         try {
-            const { nom, adresse, rating } = req.body;
+            const { nom, adresse, notation, specialite } = req.body;
             if (!nom || !adresse) {
                 return res.status(400).json({ message: "Le nom et l'adresse du restaurant sont requis" });
             }
-            await Restaurant.create({ nom, adresse, rating });
+            await Restaurant.create({ nom, adresse, notation, specialite });
             res.status(201).json({ message: "Restaurant créé avec succès" });
         } catch (error) {
             res.status(500).json({ message: "Erreur lors de la création du restaurant", error: error.message });
@@ -39,14 +39,14 @@ const restaurantController = {
     updateRestaurant: async function (req, res) {
         try {
             const { restaurantId } = req.params;
-            const { nom, adresse, rating } = req.body;
+            const { nom, adresse, notation, specialite } = req.body;
 
             const restaurant = await Restaurant.findByPk(restaurantId);
             if (!restaurant) {
                 return res.status(404).json({ message: "Restaurant non trouvé" });
             }
 
-            await restaurant.update({ nom, adresse, rating });
+            await restaurant.update({ nom, adresse, notation, specialite });
 
             res.status(200).json({ message: "Restaurant mis à jour avec succès" });
         } catch (error) {
@@ -67,7 +67,7 @@ const restaurantController = {
             res.status(500).json({ message: "Erreur lors de la suppression du restaurant", error: error.message });
         }
     },
-    
+
     getRestaurantByName: async function (req, res) {
         try {
             const { nom } = req.params;
