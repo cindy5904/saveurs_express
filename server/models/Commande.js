@@ -1,6 +1,4 @@
 const { DataTypes } = require("sequelize");
-const Client = sequelize.import('./Client'); // importer le modèle Client
-const Menu = sequelize.import('./Menu'); // importer le modèle Menu
 
 module.exports = (sequelize) => {
     const Commande = sequelize.define(

@@ -30,6 +30,10 @@ module.exports = (sequelize) => {
         type: DataTypes.STRING(10),
         allowNull: false,
       },
+      role: {
+        type: DataTypes.STRING(255),
+        allowNull: false,
+      }
     },
     {
       sequelize,

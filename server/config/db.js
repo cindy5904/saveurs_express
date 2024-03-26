@@ -12,23 +12,17 @@ const sequelize = new Sequelize(
   }
 );
 
-const Client = require("../models/Client")(sequelize);
 const Commande = require("../models/Commande")(sequelize);
-const Livreur = require("../models/Livreur")(sequelize);
 const Restaurant = require("../models/Restaurant")(sequelize);
 const Performance = require("../models/Performance")(sequelize);
 const Menu = require("../models/Menu")(sequelize);
 const Adresse = require("../models/Adresse")(sequelize);
 const Personne = require("../models/Personne")(sequelize);
 
-Client.belongsTo(Personne, { foreignKey: "personneId" }) 
-Personne.hasOne(Client);
 
-Livreur.belongsTo(Personne, { foreignKey: "personneId" });
-Personne.hasOne(Livreur);
 
-Livreur.hasMany(Commande, { foreignKey: "livreurId" });
-Commande.belongsTo(Livreur);
+Personne.hasMany(Commande, { foreignKey: "personneId" });
+Commande.belongsTo(Personne);
 
 Restaurant.hasMany(Performance, { foreignKey: "restaurantId" });
 Performance.belongsTo(Restaurant)
@@ -36,11 +30,8 @@ Performance.belongsTo(Restaurant)
 Restaurant.hasMany(Adresse, { foreignKey: "restaurantId" });
 Adresse.belongsTo(Restaurant)
 
-Commande.hasMany(Menu, { foreignKey: "commandeId" });
-Menu.belongsTo(Commande)
-
-Client.hasMany(Commande, { foreignKey: "clientId" });
-Commande.belongsTo(Client)
+Personne.hasMany(Commande, { foreignKey: "personneId" });
+Commande.belongsTo(Personne)
 
 Commande.belongsToMany(Menu, { through: 'CommandeMenu', foreignKey: 'commandeId' });
 Menu.belongsToMany(Commande, { through: 'CommandeMenu', foreignKey: 'menuId' });
