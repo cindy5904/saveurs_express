@@ -1,3 +1,4 @@
+const { DataTypes } = require("sequelize");
 const Personne = require("./Personne");
 
 module.exports = (sequelize) => {
