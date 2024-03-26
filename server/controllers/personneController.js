@@ -1,4 +1,4 @@
-const { Personne } = require('../config/database');
+const { Personne } = require('../config/db');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
@@ -41,7 +41,6 @@ const userController = {
 
             const token = jwt.sign({ userId: user.id }, process.env.RANDOM_TOKEN_SECRET, { expiresIn: "1d" });
 
-            console.log(token);
             res.cookie("accessToken", token, {
                 httpOnly: true,                
                 // secure: true,
@@ -54,6 +53,11 @@ const userController = {
         catch (error) {
             res.status(400).json({ message: "Erreur lors de l'authentification de l'Personne", error: error.message });
         }
+    },
+
+    logout: async function (_req, res) {
+        res.clearCookie('accessToken');
+        res.json({ message: "Vous avez bien été déconnecté" });
     },
 
     getUser: async function (req, res) {
