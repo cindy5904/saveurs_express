@@ -4,11 +4,6 @@ module.exports = (sequelize) => {
     const Commande = sequelize.define(
         "Commande",
         {
-            commandId: {
-                type: DataTypes.INTEGER,
-                primaryKey: true,
-                autoIncrement: true,
-            },
             dateCommande: {
                 type: DataTypes.DATE,
                 allowNull: false,
