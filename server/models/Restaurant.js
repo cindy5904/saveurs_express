@@ -13,8 +13,12 @@ module.exports = (sequelize) => {
         type: DataTypes.STRING(255),
         allowNull: false,
       },
-      rating: {
+      notation: {
         type: DataTypes.FLOAT,
+        allowNull: true,
+      },
+      specialite: {
+        type: DataTypes.STRING(255),
         allowNull: true,
       },
     },
@@ -23,7 +27,6 @@ module.exports = (sequelize) => {
       timestamps: false,
     }
   );
-  
 
   return Restaurant;
 };
