@@ -85,7 +85,7 @@ const menuController = {
                 res.status(500).json({ message: "Erreur lors de la récupération du menu par nom", error: error.message });
             }
         },
-        
+        // j'ajoute un truc
     }
 
 module.exports = menuController;    
