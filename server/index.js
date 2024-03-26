@@ -6,6 +6,8 @@ const cookieParser = require('cookie-parser');
 const app = express();
 const port = 3000;
 
+const indexRoutes = require('./routes/indexRoutes');
+
 app.use(cors());
 app.use(express.json())
 
@@ -17,6 +19,8 @@ app.use(cors({
 app.use(cookieParser());
 
 app.use(express.urlencoded({ extended: true }));
+
+app.use('/server/v1', indexRoutes);
 
 DB.sequelize
   .authenticate()

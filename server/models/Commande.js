@@ -10,9 +10,13 @@ module.exports = (sequelize) => {
                 defaultValue: DataTypes.NOW,
             },
             statut: {
-                type: DataTypes.ENUM('En attente', 'En cours', 'Terminée'),
+                type: DataTypes.ENUM('à valider','En attente', 'En préparation' ,'Prête à livrer','Prête à retirer','livrée ',  'Annulée', 'Retirée', 'Terminée'),
                 allowNull: false,
-                defaultValue: 'En attente',
+                defaultValue: 'à valider',
+            },
+            prix: {
+                type: DataTypes.FLOAT,
+                allowNull: false,
             },
         },
         {
@@ -20,6 +24,5 @@ module.exports = (sequelize) => {
         }
     );
 
-
-    return  Commande;
+    return Commande;
 };
