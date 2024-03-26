@@ -1,0 +1,24 @@
+#Footer {
+    
+}
+
+/* MOBILE */
+@media screen and (min-width: 425px) and (max-width : 767px) {
+    #Footer {
+
+    }
+}
+
+/* TAB */
+@media screen and (min-width: 768px) and (max-width : 1023px) {
+    #Footer {
+
+    }
+}
+
+/* LAPTOP */
+@media screen and (min-width: 1024px) and (max-width : 1440px) {
+    #Footer {
+        
+    }
+}
