@@ -41,5 +41,11 @@ sequelize
   );
 
 module.exports = {
-  sequelize,
+  sequelize, 
+  Commande, 
+  Restaurant, 
+  Performance, 
+  Menu, 
+  Adresse, 
+  Personne
 };
