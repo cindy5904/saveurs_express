@@ -4,31 +4,29 @@ module.exports = (sequelize) => {
   const Restaurant = sequelize.define(
     "Restaurant",
     {
-      id: {
+      restaurantId: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true,
       },
-      name: {
+      nom: {
         type: DataTypes.STRING(255),
         allowNull: false,
       },
-      address: {
-        type: DataTypes.STRING(255),
-        allowNull: false,
-      },
-      // Champ pour la notation du restaurant
+      // Supprimer le champ "adresse" car il sera géré par la relation avec la table "Adresse"
       rating: {
-        type: DataTypes.FLOAT, // Peut être un nombre décimal
-        allowNull: true, // Permettant de ne pas avoir de notation initiale
+        type: DataTypes.FLOAT,
+        allowNull: true,
       },
-      // Autres champs pour les détails du restaurant, comme le numéro de téléphone, le type de cuisine, etc.
     },
     {
       freezeTableName: true,
       timestamps: false,
     }
   );
+
+  // Définir la relation entre Restaurant et Adresse
+  Restaurant.belongsTo(sequelize.models.Adresse);
 
   return Restaurant;
 };
