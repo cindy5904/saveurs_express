@@ -2,11 +2,7 @@ const { DataTypes } = require('sequelize');
 
 module.exports = (sequelize) => {
     const Performance = sequelize.define('Performance', {
-        perfomanceId: {
-          type: DataTypes.INTEGER,
-          primaryKey: true,
-          autoIncrement: true,
-        },
+    
         venteMensuelle: {
           type: DataTypes.INTEGER,
           allowNull: false,
