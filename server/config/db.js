@@ -33,6 +33,9 @@ Commande.belongsTo(Personne)
 Personne.hasMany(Menu);
 Menu.belongsTo(Personne);
 
+Personne.belongsTo(Restaurant);
+Restaurant.hasMany(Personne);
+
 Commande.belongsToMany(Menu, { through: 'CommandeMenu' });
 Menu.belongsToMany(Commande, { through: 'CommandeMenu' });
 
