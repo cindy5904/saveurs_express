@@ -21,20 +21,17 @@ const Personne = require("../models/Personne")(sequelize);
 
 
 
-Personne.hasMany(Commande, { foreignKey: "personneId" });
-Commande.belongsTo(Personne);
-
-Restaurant.hasMany(Performance, { foreignKey: "restaurantId" });
+Restaurant.hasMany(Performance);
 Performance.belongsTo(Restaurant)
 
-Restaurant.hasMany(Adresse, { foreignKey: "restaurantId" });
+Restaurant.hasMany(Adresse);
 Adresse.belongsTo(Restaurant)
 
-Personne.hasMany(Commande, { foreignKey: "personneId" });
+Personne.hasMany(Commande);
 Commande.belongsTo(Personne)
 
-Commande.belongsToMany(Menu, { through: 'CommandeMenu', foreignKey: 'commandeId' });
-Menu.belongsToMany(Commande, { through: 'CommandeMenu', foreignKey: 'menuId' });
+Commande.belongsToMany(Menu, { through: 'CommandeMenu' });
+Menu.belongsToMany(Commande, { through: 'CommandeMenu' });
 
 sequelize
   .sync({ force: false })

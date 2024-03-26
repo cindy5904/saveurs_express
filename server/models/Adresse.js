@@ -2,11 +2,6 @@ const { DataTypes } = require('sequelize');
 
 module.exports = (sequelize) => {
     const Adresse = sequelize.define('Adresse', {
-        adresseId: {
-          type: DataTypes.INTEGER,
-          primaryKey: true,
-          autoIncrement: true,
-        },
         numero: {
           type: DataTypes.INTEGER,
           allowNull: false,

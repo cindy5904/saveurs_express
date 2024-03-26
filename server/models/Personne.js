@@ -5,11 +5,6 @@ module.exports = (sequelize) => {
 
   Personne.init(
     {
-      personneId: {
-        type: DataTypes.INTEGER,
-        primaryKey: true,
-        autoIncrement: true,
-      },
       nom: {
         type: DataTypes.STRING(50),
         allowNull: false,
