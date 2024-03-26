@@ -27,12 +27,6 @@ module.exports = (sequelize) => {
         }
     );
 
-    
-    // Définir la relation entre Commande et Menu
-    Commande.hasMany(Menu, { as: 'menus' });
-
-    // Définir la relation entre Commande et Client
-    Commande.belongsTo(Client);
 
     return  Commande;
 };

@@ -24,9 +24,7 @@ module.exports = (sequelize) => {
       timestamps: false,
     }
   );
-
-  // Définir la relation entre Restaurant et Adresse
-  Restaurant.belongsTo(sequelize.models.Adresse);
+  
 
   return Restaurant;
 };
