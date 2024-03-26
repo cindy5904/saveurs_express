@@ -30,6 +30,9 @@ Adresse.belongsTo(Restaurant)
 Personne.hasMany(Commande);
 Commande.belongsTo(Personne)
 
+Personne.hasMany(Menu);
+Menu.belongsTo(Personne);
+
 Commande.belongsToMany(Menu, { through: 'CommandeMenu' });
 Menu.belongsToMany(Commande, { through: 'CommandeMenu' });
 
