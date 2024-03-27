@@ -1,6 +1,31 @@
-const { Commande, Menu, Client } = require('../config/db');
+const { Commande, Menu, Personne, Adresse } = require('../config/db');
+
 
 const commandeController = {
+    createCommande : async function (req, res) {
+        try {
+            const { dateCommande, statut, prix, userId } = req.body;
+            if (!dateCommande || !statut || !prix) {
+                return res.status(400).json({ message: "Toutes les informations sont requises pour l'enregistrement de la commande" });
+            }
+           
+            // const user = await Personne.findByPk(userId);
+
+            // const adresse = await Adresse.findByPk(user.AdresseId);
+           
+            const user = await Personne.findOne({ where: { id: userId },
+                include: {
+                    model: Adresse,
+                }
+            });
+
+            
+            await Commande.create({ dateCommande, statut, prix, id: user.id, AdresseId: user.Adresse.id});
+            res.status(201).json({ message: "commande créé avec succès" });
+        } catch (error) {
+            res.status(500).json({ message: "Erreur lors de la création de la commande", error: error.message });
+        }
+        },
 
     getCommandes: async function (req, res) {
         try {
