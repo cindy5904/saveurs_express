@@ -1,4 +1,4 @@
-const { Personne } = require("../config/db");
+const { Personne, Adresse } = require("../config/db");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
@@ -7,8 +7,8 @@ const expiryDate = new Date(Date.now() + 60 * 60 * 7000);
 const personneController = {
   signUp: async function (req, res) {
     try {
-      const { nom, prenom, email, password, telephone, role } = req.body;
-      
+      const { nom, prenom, email, password, telephone, role, numero, rue, codePostal, ville } = req.body;
+
       const rolesAutorises = ["client", "livreur", "restaurateur"];
 
       if (!rolesAutorises.includes(role)) {
@@ -18,10 +18,8 @@ const personneController = {
       }
       const salt = await bcrypt.genSalt(10);
       const hashedPassword = await bcrypt.hash(password, salt);
-      console.log(hashedPassword);
-      console.log({ nom, prenom, email, telephone, role});
 
-      const data = await Personne.create({
+      const user = await Personne.create({
         nom,
         prenom,
         email,
@@ -30,7 +28,16 @@ const personneController = {
         role,
       });
 
+      await Adresse.create({
+        numero,
+        rue,
+        codePostal,
+        ville,
+        PersonneId: user.id,
+      });
+
       res.status(201).json(data);
+      
     } catch (error) {
       res
         .status(400)
