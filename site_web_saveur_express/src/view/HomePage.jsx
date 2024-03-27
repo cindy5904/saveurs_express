@@ -8,12 +8,12 @@ import { fetchAllRestaurateur, fetchApi } from "../components/Global/globalSlice
 const HomePage = () => {
     const dispatch = useDispatch();
 
-    const [restaurants, setRestaurants] = useState(useSelector((state) => state.restaurants))
+    const [restaurants, setRestaurants] = useState(useSelector((state) => state.global.restaurants))
     console.log(restaurants);
     useEffect(() => {
         dispatch(fetchAllRestaurateur())
     }, [])
-    // VIENS
+
     return (
         <main id='HomePages'>
             <section className="hero">
@@ -45,7 +45,7 @@ const HomePage = () => {
             </Presentation>
             <Presentation title={'Nos Restaurant'}>
                 <div className="card">
-                    {/* {restaurants.map(({ nom, notation, specialite, img, idRestaurant }) => <CardRestaurant key={idRestaurant} nom={nom} notation={notation} specialite={specialite} img={img} />)} */}
+                    {restaurants.map(({ nom, notation, specialite, img, idRestaurant }) => <CardRestaurant key={idRestaurant} nom={nom} notation={notation} specialite={specialite} img={img} />)}
                 </div>
             </Presentation>
         </main>
