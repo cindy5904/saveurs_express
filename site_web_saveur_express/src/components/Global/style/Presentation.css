@@ -1,0 +1,42 @@
+#Presentation {
+    height: 550px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    & hgroup {
+        margin: 2rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        & h3 {
+            text-align: center;
+            padding: 1.5rem;
+            margin: 1rem;
+        }
+
+        & hr {
+            width: 50vw;
+            font-size: 3;
+        }
+    }
+}
+
+/* MOBILE */
+@media screen and (min-width: 425px) and (max-width : 767px) {
+    #Presentation {}
+}
+
+/* TAB */
+@media screen and (min-width: 768px) and (max-width : 1023px) {
+    #Presentation {}
+
+}
+
+/* LAPTOP */
+@media screen and (min-width: 1024px) and (max-width : 1440px) {
+    #Presentation {}
+}
