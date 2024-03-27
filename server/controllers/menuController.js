@@ -3,11 +3,11 @@ const { Menu } = require('../config/db')
 const menuController = {
     createMenu : async function (req, res) {
         try {
-            const { nom, prix, description } = req.body;
+            const { nom, prix, description, userId } = req.body;
             if (!nom || !prix || !description) {
                 return res.status(400).json({ message: "Toutes les informations sont requises pour l'enregistrement du menu" });
             }
-            await Menu.create({ nom, prix, description });
+            await Menu.create({ nom, prix, description, PersonneId: userId});
             res.status(201).json({ message: "Menu créé avec succès" });
         } catch (error) {
             res.status(500).json({ message: "Erreur lors de la création du menu", error: error.message });

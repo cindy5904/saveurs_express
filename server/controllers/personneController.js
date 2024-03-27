@@ -28,7 +28,7 @@ const personneController = {
         role,
       });
 
-      await Adresse.create({
+       const adresseUser = await Adresse.create({
         numero,
         rue,
         codePostal,
@@ -36,7 +36,7 @@ const personneController = {
         PersonneId: user.id,
       });
 
-      res.status(201).json(data);
+      res.status(201).json({ user, adresseUser });
       
     } catch (error) {
       res

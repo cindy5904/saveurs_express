@@ -13,11 +13,13 @@ const sequelize = new Sequelize(
 );
 
 const Commande = require("../models/Commande")(sequelize);
+const CommandeMenu = require("../models/CommandeMenu")(sequelize);
 const Restaurant = require("../models/Restaurant")(sequelize);
 const Performance = require("../models/Performance")(sequelize);
 const Menu = require("../models/Menu")(sequelize);
 const Adresse = require("../models/Adresse")(sequelize);
 const Personne = require("../models/Personne")(sequelize);
+
 
 
 Restaurant.hasMany(Performance);
@@ -55,5 +57,6 @@ module.exports = {
   Performance, 
   Menu, 
   Adresse, 
-  Personne
+  Personne, 
+  CommandeMenu
 };
