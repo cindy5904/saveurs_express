@@ -1,0 +1,93 @@
+/* Style par défaut */
+:root {
+  --color_primary: #FFBC36;
+  --color_primary-light: #FFEECC;
+  --color_primary-dark: #332200;
+
+  --color_secondary: #84B4FC;
+  --color_secondary-light: #CDE1FE;
+  --color_secondary-dark: #011532;
+
+  --color_terciary: #1F2041;
+  --color_terciary-light: #DCDDEF;
+  --color_terciary-dark: #101123;
+
+  --white: #E9E9E9;
+  --black: #151515;
+  --gray: #C9C4C4;
+
+  --size-xs: 1.5rem;
+  --size-s: 2rem;
+  --size-l: 3rem;
+  --size-xl: 5rem
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h1 {
+  font-size: var(--size-xl);
+}
+
+h2 {
+  font-size: var(--size-l);
+}
+
+h3,
+label {
+  font-size: var(--size-s);
+}
+
+p,
+input,
+select,
+li,
+a {
+  font-size: var(--size-xs);
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+main {
+  min-height: 80vh;
+}
+
+
+/* MOBILE */
+@media screen and (min-width: 425px) and (max-width : 767px) {
+  :root {
+    --size-xs: 0.8rem;
+    --size-s: 1rem;
+    --size-l: 2rem;
+    --size-xl: 3rem
+  }
+}
+
+/* TAB */
+@media screen and (min-width: 768px) and (max-width : 1023px) {
+  :root {
+    --size-xs: 1rem;
+    --size-s: 1.3rem;
+    --size-l: 2.5rem;
+    --size-xl: 3.5rem
+  }
+}
+
+/* LAPTOP */
+@media screen and (min-width: 1024px) and (max-width : 1440px) {
+  :root {
+    --size-xs: 1.3rem;
+    --size-s: 1.5rem;
+    --size-l: 2.8rem;
+    --size-xl: 4rem
+  }
+}
