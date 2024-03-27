@@ -1,0 +1,23 @@
+.card {
+    width: 300px; /* Largeur de la carte */
+    margin: 10px; /* Marge extérieure de la carte */
+    border: 1px solid #ccc; /* Bordure de la carte */
+    border-radius: 5px; /* Rayon de la bordure de la carte */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ombre de la carte */
+  }
+  
+  .card-body {
+    padding: 15px; /* Remplissage du corps de la carte */
+  }
+  
+  .card-title {
+    font-size: 18px; /* Taille de la police du titre de la carte */
+    margin-bottom: 10px; /* Marge inférieure du titre de la carte */
+  }
+  
+  .card-text {
+    font-size: 14px; /* Taille de la police du texte de la carte */
+    color: #666; /* Couleur du texte de la carte */
+    margin-bottom: 5px; /* Marge inférieure du texte de la carte */
+  }
+  
