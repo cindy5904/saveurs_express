@@ -1,14 +1,32 @@
-const { Restaurant } = require('../config/db');
+const { Restaurant, Adresse, Personne } = require('../config/db');
 
 const restaurantController = {
     createRestaurant: async function (req, res) {
         try {
-            const { nom, adresse, notation, specialite } = req.body;
-            if (!nom || !adresse) {
-                return res.status(400).json({ message: "Le nom et l'adresse du restaurant sont requis" });
+            const { nom, notation, specialite, numero, rue, ville, codePostal, userId  } = req.body;
+
+            if (!nom) {
+                return res.status(400).json({ message: "Le nom du restaurant sont requis" });
             }
-            await Restaurant.create({ nom, adresse, notation, specialite });
+
+            const restaurantExist = await Restaurant.findOne({ where: { nom } });
+
+            if (restaurantExist) {
+                return res.status(400).json({ message: "Un restaurant avec ce nom existe déjà" });
+            }
+
+            const restaurant = await Restaurant.create({ 
+                nom,
+                notation,
+                specialite,
+            });
+
+            await Personne.update({ RestaurantId: restaurant.id }, { where: { id: userId } });
+
+            await Adresse.create({ numero, rue, ville, codePostal, RestaurantId: restaurant.id});
+
             res.status(201).json({ message: "Restaurant créé avec succès" });
+
         } catch (error) {
             res.status(500).json({ message: "Erreur lors de la création du restaurant", error: error.message });
         }
@@ -39,14 +57,20 @@ const restaurantController = {
     updateRestaurant: async function (req, res) {
         try {
             const { restaurantId } = req.params;
-            const { nom, adresse, notation, specialite } = req.body;
+            console.log(req.body);
+            console.log(restaurantId);
+            const { nom, notation, specialite, numero, rue, ville, codePostal } = req.body;
 
             const restaurant = await Restaurant.findByPk(restaurantId);
             if (!restaurant) {
                 return res.status(404).json({ message: "Restaurant non trouvé" });
             }
 
-            await restaurant.update({ nom, adresse, notation, specialite });
+            await restaurant.update({ nom, notation, specialite });
+
+            const adresse = await Adresse.findOne({ where: { restaurantId } });
+
+            await adresse.update({ numero, rue, ville, codePostal });
 
             res.status(200).json({ message: "Restaurant mis à jour avec succès" });
         } catch (error) {

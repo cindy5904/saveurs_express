@@ -74,7 +74,7 @@ const personneController = {
       res
         .status(400)
         .json({
-          message: "Erreur lors de l'authentification de l'Personne",
+          message: "Erreur lors de l'authentification",
           error: error.message,
         });
     }
