@@ -1,6 +1,6 @@
 import React from 'react';
 import MenuCard from './MenuCard'; // Importe le composant MenuCard
-import './style/MenuList.css'; // Importe le fichier CSS pour le style
+import './style/menuList.css'; // Importe le fichier CSS pour le style
 
 const MenuList = ({ menus }) => {
   return (
