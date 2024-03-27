@@ -31,6 +31,7 @@ export const fetchAllRestaurateur = createAsyncThunk(
             }
             restaurant.push(element)
         }
+        console.log(restaurant);
         return restaurant
     }
 )
