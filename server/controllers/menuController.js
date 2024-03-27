@@ -17,7 +17,9 @@ const menuController = {
         getMenu : async function (req, res) {
             try {
                 const menu = await Menu.findAll();
+                
                 res.status(200).json(menu);
+                console.log(menu)
             } catch (error) {
                 res.status(500).json({ message: "Erreur lors de la récupération des menus", error: error.message });
             }
@@ -85,7 +87,7 @@ const menuController = {
                 res.status(500).json({ message: "Erreur lors de la récupération du menu par nom", error: error.message });
             }
         },
-        // j'ajoute un truc
+        
     }
 
 module.exports = menuController;    
