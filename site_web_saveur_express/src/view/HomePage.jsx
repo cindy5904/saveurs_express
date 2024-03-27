@@ -8,12 +8,12 @@ import { fetchAllRestaurateur, fetchApi } from "../components/Global/globalSlice
 const HomePage = () => {
     const dispatch = useDispatch();
 
-    const [restaurants, setRestaurants] =useState(useSelector((state) => state.restaurants)) 
-    console.log(restaurants);
+    const [restaurants, setRestaurants] = useState(useSelector((state) => state.restaurants))
     console.log(restaurants);
     useEffect(() => {
         dispatch(fetchAllRestaurateur())
-    },[])
+    }, [])
+    // VIENS
     return (
         <main id='HomePages'>
             <section className="hero">
@@ -31,7 +31,7 @@ const HomePage = () => {
                     <div>
                         <img src="https://images.unsplash.com/photo-1615917124838-1af8a2aaae09?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" />
                         <p>Burger</p>
-                        
+
                     </div>
                     <div>
                         <img src="https://images.unsplash.com/photo-1481931098730-318b6f776db0?q=80&w=1890&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" />
@@ -45,7 +45,7 @@ const HomePage = () => {
             </Presentation>
             <Presentation title={'Nos Restaurant'}>
                 <div className="card">
-                    {restaurants.map(({ nom, notation, specialite, img, idRestaurant }) => <CardRestaurant key={idRestaurant} nom={nom} notation={notation} specialite={specialite} img={img} />)}
+                    {/* {restaurants.map(({ nom, notation, specialite, img, idRestaurant }) => <CardRestaurant key={idRestaurant} nom={nom} notation={notation} specialite={specialite} img={img} />)} */}
                 </div>
             </Presentation>
         </main>
