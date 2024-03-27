@@ -5,9 +5,8 @@ const verifyTokenMiddleware = require('../middleware/verifyTokenMiddleware');
 
 const router = new Router();
 
-router.get('/commande', commandeController.getCommandes);
-// router.post('/menu/create', menuController.createMenu);
-
+router.get('/commandes', commandeController.getCommandesByRestaurant);
+router.post('/commande/create', commandeController.createCommande);
 router.get('/commande/:commandeId', commandeController.getCommandeById);
 router.get('/commande/nom/:nom', commandeController.getCommandeByClientName);
 router.delete('/commande/delete/commandeId', commandeController.deleteCommande);
