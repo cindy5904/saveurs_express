@@ -15,6 +15,10 @@ module.exports = (sequelize) => {
             description: {
                 type: DataTypes.TEXT,
             },
+            image: {
+                type: DataTypes.STRING(255),
+                allowNull: true, 
+            },
         },
         {
             freezeTableName: true,
