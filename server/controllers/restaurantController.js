@@ -33,7 +33,7 @@ const restaurantController = {
 
             await Personne.update({ RestaurantId: restaurant.id }, { where: { id: userId } });
 
-            await Adresse.create({ numero, rue, ville, codePostal, RestaurantId: restaurant.id});
+            await Adresse.create({ numero, rue, ville, codePostal, RestaurantId: restaurant.id,});
 
             res.status(201).json({ message: "Restaurant créé avec succès" });
 
@@ -132,14 +132,18 @@ const restaurantController = {
         try {
             const { nom } = req.params;
 
-            const restaurant = await Restaurant.findOne({ where: { nom } });
+            const restaurant = await Restaurant.findOne({ where: { nom },
+                include: {
+                    model: Adresse,
+                },
+            });
 
             if (!restaurant) {
                 return res.status(404).json({ message: "Restaurant non trouvé" });
             }
 
             res.status(200).json(restaurant);
-            
+
         } catch (error) {
             res.status(500).json({ message: "Erreur lors de la récupération du restaurant", error: error.message });
         }
