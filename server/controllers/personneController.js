@@ -8,9 +8,8 @@ const personneController = {
   signUp: async function (req, res) {
     try {
       const { nom, prenom, email, password, telephone, role } = req.body;
-      console.log(req.body);
-
-      const rolesAutorises = ["client", "livreur"];
+      
+      const rolesAutorises = ["client", "livreur", "restaurateur"];
 
       if (!rolesAutorises.includes(role)) {
         return res
