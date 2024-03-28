@@ -1,7 +1,19 @@
-#Footer {
-    
+#footer {
+    background-color: #1F2041;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 2;
 }
+.footer-text {
+    color: #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
+}
 /* MOBILE */
 @media screen and (min-width: 425px) and (max-width : 767px) {
     #Footer {
