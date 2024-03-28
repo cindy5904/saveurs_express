@@ -46,14 +46,16 @@ const globalSlice = createSlice({
             loading : false,
             data:[]
         },
-        filtre: {
-            restaurant: '',
-            search: ''
-        },
+        panier : [],
         darkMode: false,
     },
     reducers: {
-
+        addPanier : (state, action)=>{
+            state.panier.push(action.payload)
+        },
+        removePanier : (state, action)=>{
+            state.panier.splice(action.payload, 1);
+        }
     },
     extraReducers: (builder) => {
         builder.addCase(fetchAllRestaurateur.fulfilled, (state, action) => {
