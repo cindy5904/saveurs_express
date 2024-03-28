@@ -8,13 +8,13 @@ export const fetchApi = async (urlName) => {
     return data
 }
 
-// export const fetchAllMenu = createAsyncThunk(
-//     'global/fetchAllMenu',
-//     async () => {
-//         const data = await fetchApi(VITE_DB_DATABASE);
-//         console.log(data);
-//     }
-// )
+export const fetchAllMenu = createAsyncThunk(
+    'global/fetchAllMenu',
+    async () => {
+        const data = await fetchApi(VITE_DB_MENU);
+        return data
+    }
+)
 
 export const fetchAllRestaurateur = createAsyncThunk(
     'global/fetchAllRestaurateur',
@@ -38,8 +38,14 @@ export const fetchAllRestaurateur = createAsyncThunk(
 const globalSlice = createSlice({
     name: 'global',
     initialState: {
-        menu: [],
-        restaurants: [],
+        menu: {
+            data : [],
+            loading : false
+        },
+        restaurants: {
+            loading : false,
+            data:[]
+        },
         filtre: {
             restaurant: '',
             search: ''
@@ -47,10 +53,18 @@ const globalSlice = createSlice({
         darkMode: false,
     },
     reducers: {
+
     },
     extraReducers: (builder) => {
         builder.addCase(fetchAllRestaurateur.fulfilled, (state, action) => {
-            state.restaurants = action.payload;
+            state.restaurants.data = action.payload;
+            state.restaurants.loading = false;
+        })
+        builder.addCase(fetchAllRestaurateur.pending, (state, action) => {
+            state.restaurants.loading = true;
+        })
+        builder.addCase(fetchAllRestaurateur.rejected, (state, action) => {
+            state.restaurants.loading = 'Error';
         })
     }
 })
