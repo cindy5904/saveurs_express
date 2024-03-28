@@ -39,21 +39,23 @@ const globalSlice = createSlice({
     name: 'global',
     initialState: {
         menu: {
-            data : [],
-            loading : false
+            data: [],
+            loading: false
         },
         restaurants: {
-            loading : false,
-            data:[]
+            loading: false,
+            data: []
         },
-        filtre: {
-            restaurant: '',
-            search: ''
-        },
+        panier: [],
         darkMode: false,
     },
     reducers: {
-
+        addPanier: (state, action) => {
+            state.panier.push(action.payload)
+        },
+        removePanier: (state, action) => {
+            state.panier.splice(action.payload, 1);
+        }
     },
     extraReducers: (builder) => {
         builder.addCase(fetchAllRestaurateur.fulfilled, (state, action) => {
@@ -69,4 +71,5 @@ const globalSlice = createSlice({
     }
 })
 
+export const { addPanier, removePanier } = globalSlice.actions
 export default globalSlice.reducer; 
