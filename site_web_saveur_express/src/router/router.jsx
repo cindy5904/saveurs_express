@@ -5,6 +5,7 @@ import MenuList from "../components/menu/MenuList";
 import EspaceClientPage from "../views/EspaceClientPage";
 import ProtectedRoute from "../middleware/ProtectedRoute";
 
+
 const root = createBrowserRouter([
     {
         path: "/",
@@ -16,6 +17,7 @@ const root = createBrowserRouter([
             },
             {
                 path: '/menu',
+
                 element: <MenuList />
             }
         ]
@@ -28,6 +30,7 @@ const root = createBrowserRouter([
             {
                 path: "/espace-client",
                 element: <EspaceClientPage />
+
             }
         ]
     }

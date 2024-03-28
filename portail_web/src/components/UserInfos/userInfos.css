@@ -1,0 +1,20 @@
+section {
+    margin: 20px 0;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+
+    h2 {
+        font-size: var(--size-l);
+        color: var(--color_secondary-dark);
+        margin-bottom: 10px;
+    }
+    p {
+        font-size: 16px;
+        color: var(--color_secondary-dark);
+        line-height: 1.5rem;
+    }
+}
+
+

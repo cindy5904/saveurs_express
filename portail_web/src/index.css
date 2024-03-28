@@ -16,10 +16,10 @@
   --black: #151515;
   --gray: #C9C4C4;
 
-  --size-xs: 1.5rem;
-  --size-s: 2rem;
-  --size-l: 3rem;
-  --size-xl: 5rem
+  --size-xs: 0.7rem;
+  --size-s: 1rem;
+  --size-l: 1.5rem;
+  --size-xl: 2rem
 }
 
 * {
@@ -28,14 +28,14 @@
   box-sizing: border-box;
 }
 
-h1, h2, h3, h4 label {
+h1, h2, h3, h4 {
   font-family: 'Baloo Thamini 2', system-ui;
   font-optical-sizing: auto;
   font-weight: 700;
   font-style: italic;
 }
 
-p, input, select, li, a {
+p, input, label, select, li, a  {
   font-family: 'Roboto', sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;
@@ -73,12 +73,30 @@ li {
 }
 
 main {
+  padding: 10px 20px;
   min-height: 80vh;
+}
+
+button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: var(--color_secondary-dark);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: opacity 0.3s;
+  font-weight: 600;
+}
+
+button:hover {
+  opacity: 0.8;
 }
 
 
 /* MOBILE */
-@media screen and (min-width: 200px) and (max-width : 767px) {
+/* @media screen and (min-width: 200px) and (max-width : 767px) {
   :root {
     --size-xs: 0.8rem;
     --size-s: 1rem;
@@ -88,21 +106,22 @@ main {
 }
 
 /* TAB */
-@media screen and (min-width: 768px) and (max-width : 1023px) {
+/* @media screen and (min-width: 768px) and (max-width : 1023px) {
   :root {
     --size-xs: 1rem;
     --size-s: 1.3rem;
+    --size-m: 1.7rem;
     --size-l: 2.5rem;
     --size-xl: 3.5rem
   }
-}
+} 
 
 /* LAPTOP */
-@media screen and (min-width: 1024px) and (max-width : 1440px) {
+/* @media screen and (min-width: 1024px) and (max-width : 1440px) {
   :root {
     --size-xs: 1.3rem;
     --size-s: 1.5rem;
     --size-l: 2.8rem;
     --size-xl: 4rem
   }
-}
+} */ 

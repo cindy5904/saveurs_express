@@ -3,7 +3,7 @@ import classes from "./NavBar.module.css";
 
 function NavBar() {
     return (
-        <nav>
+        <nav className={classes.nav}>
             <ul className={classes.ul}>
                 <li className={classes.li}>
                     <NavLink className={classes.link} to="/">
@@ -11,17 +11,17 @@ function NavBar() {
                     </NavLink>
                 </li>
                 <li className={classes.li}>
-                    <NavLink className={classes.link} to="/about">
+                    <NavLink className={classes.link} to="">
                         À propos
                     </NavLink>
                 </li>
                 <li className={classes.li}>
-                    <NavLink className={classes.link} to="/contact">
+                    <NavLink className={classes.link} to="">
                         Contact
                     </NavLink>
                 </li>
                 <li className={classes.li}>
-                    <NavLink className={classes.link} to="/menu">
+                    <NavLink className={classes.link} to="/connexion">
                         Espace restaurateur
                     </NavLink>
                 </li>
