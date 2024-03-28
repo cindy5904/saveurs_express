@@ -1,0 +1,18 @@
+.section {
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+.title {
+    font-size: var(--size-l);
+    color: var(--color_secondary-dark);
+    margin-bottom: 10px;
+}
+.text {
+    font-size: 16px;
+    color: var(--color_secondary-dark);
+    line-height: 1.5rem;
+}

@@ -1,0 +1,41 @@
+.title {
+    font-size: var(--size-l);
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.formGroup {
+    margin-bottom: 20px;
+}
+
+.address {
+    font-size: var(--size-m);
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-align: center;
+    text-decoration: underline;
+}
+
+.label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+

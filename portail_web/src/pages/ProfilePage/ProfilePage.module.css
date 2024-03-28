@@ -1,0 +1,10 @@
+.title {
+        font-size: var(--size-xl);
+        text-align: center;
+}
+
+.text {
+    margin-top: 2rem;
+    font-size: var(--size-m);
+    text-align: center;
+}

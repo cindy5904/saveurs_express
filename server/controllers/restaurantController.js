@@ -3,7 +3,7 @@ const { Restaurant, Adresse, Personne } = require('../config/db');
 const restaurantController = {
     createRestaurant: async function (req, res) {
         try {
-            const { nom, notation, specialite, numero, rue, ville, codePostal, userId  } = req.body;
+            const { nom, notation, specialite, image, numero, rue, ville, codePostal, userId  } = req.body;
 
             const user = await Personne.findByPk(userId);
 
@@ -29,6 +29,7 @@ const restaurantController = {
                 nom,
                 notation,
                 specialite,
+                image,
             });
 
             await Personne.update({ RestaurantId: restaurant.id }, { where: { id: userId } });
@@ -39,6 +40,33 @@ const restaurantController = {
 
         } catch (error) {
             res.status(500).json({ message: "Erreur lors de la création du restaurant", error: error.message });
+        }
+    },
+
+    getRestaurantByUser : async function (req, res) {
+        try {
+            const { userId } = req.params;
+
+            const user = await Personne.findByPk(userId);
+
+            if (!user) {
+                return res.status(404).json({ message: "Utilisateur non trouvé" });
+            }
+
+            const restaurant = await Restaurant.findOne({ where: { id: user.RestaurantId },
+                include: {
+                    model: Adresse,
+                },
+            });
+
+            if (!restaurant) {
+                return res.status(404).json({ message: "Restaurant non trouvé" });
+            }
+
+            res.status(200).json(restaurant);
+
+        } catch (error) {
+            res.status(500).json({ message: "Erreur lors de la récupération du restaurant", error: error.message });
         }
     },
 

@@ -1,10 +1,9 @@
-import MenuCard from "../components/menu/MenuCard"
 import "./style/HomePage.css"
 import CardRestaurant from "../components/Restaurant/CardRestaurant"
 import Presentation from "../components/Global/Presentation"
 import { useDispatch, useSelector } from "react-redux"
 import { useEffect, useState } from "react"
-import { fetchAllRestaurateur } from "../components/Global/globalSlice"
+import { addPanier, fetchAllRestaurateur, removePanier } from "../components/Global/globalSlice"
 
 
 const HomePage = () => {
@@ -14,31 +13,30 @@ const HomePage = () => {
         data: useSelector((state) => state.global.restaurants.data),
         loading: useSelector((state) => state.global.restaurants.loading)
     }
+    const panier = useSelector((state) => state.global.panier)
+    console.log(panier);
     useEffect(() => {
         dispatch(fetchAllRestaurateur())
 
     }, [])
 
     return (
-        <main id='HomePages'>
-
-            <section className="hero">
+        <main id='HomePages' >
+            
+            <section className="HomePages-Hero">
                 <cite>
                     <h1>Un Festin à portée de main ! </h1>
-                    <form className="Search-Bar">
+                    <form className="HomePages-Hero-Search-Bar">
                         <i>icon</i>
                         <input type="text" placeholder="Rechercher un menu" name="" id="" />
                         <button>Rechercher</button>
                     </form>
                 </cite>
-            </section>
-            <section className="corps">
+            </section> 
+            <section className="HomePages-Corps">
 
                 <Presentation title={'Meilleurs Ventes'}>
-
-
-                    <figure className="Best-Menu">
-
+                    <figure className="HomePages-Corps-Best-Menu">
                         <div className="container">
                             <img src="https://images.unsplash.com/photo-1615917124838-1af8a2aaae09?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" />
                             <p>Burger</p>
@@ -53,8 +51,9 @@ const HomePage = () => {
                         </div>
                     </figure>
                 </Presentation>
+
                 <Presentation title={'Nos Restaurants'}>
-                    <div className="card">
+                    <div className="HomePages-Corps-Restaurants-Card">
                         {restaurants.data?.map(({ nom, notation, specialite, img, idRestaurant }) => <CardRestaurant key={idRestaurant} nom={nom} notation={notation} specialite={specialite} img={img} />)}
                     </div>
                 </Presentation>

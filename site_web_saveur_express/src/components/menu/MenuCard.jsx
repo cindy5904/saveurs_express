@@ -1,27 +1,30 @@
 import React, { useState } from 'react';
 import './style/menuCard.css';
+import { addPanier } from '../Global/globalSlice';
+import { useDispatch } from 'react-redux'
 
-const MenuCard = ({ data }) => { 
-  const [cartCount, setCartCount] = useState(0);
+
+const MenuCard = ({ data, view }) => {
+  const dispatch = useDispatch();
 
   const handleAddToCart = () => {
-    onAddToCart(data);
-    setCartCount(cartCount + 1);
+    dispatch(addPanier({ id: data.id, quantity: 1, nom: data.nom, prix: data.prix, image: data.image }));
   };
   return (
-    <div className="card">
+    <div id="card-menu" className="card">
       <div className="container-image">
-        <img src={data.image} alt={data.nom} className="card-image" />
+        <img src={data.image} alt={data.nom} className="card-image-menu" />
       </div>
-      <div className="card-content">
-        <h2>{data.nom}</h2>
+      <div className="card-content-menu">
+        <h2 className='title-h2-menu'>{data.nom}</h2>
         <p className='menu-text'>{data.description}</p>
         <p className='menu-text'>Prix: {data.prix}</p>
       </div>
       <div className="button-menu">
-      <button className="btn" onClick={handleAddToCart}>
-        Commander
-      </button>
+        {(!view) ? <button className="btn-menu" onClick={handleAddToCart}>
+          Commander
+        </button> : <></>}
+
       </div>
     </div>
   );
