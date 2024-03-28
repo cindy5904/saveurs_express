@@ -39,21 +39,21 @@ const globalSlice = createSlice({
     name: 'global',
     initialState: {
         menu: {
-            data : [],
-            loading : false
+            data: [],
+            loading: false
         },
         restaurants: {
-            loading : false,
-            data:[]
+            loading: false,
+            data: []
         },
-        panier : [],
+        panier: [],
         darkMode: false,
     },
     reducers: {
-        addPanier : (state, action)=>{
+        addPanier: (state, action) => {
             state.panier.push(action.payload)
         },
-        removePanier : (state, action)=>{
+        removePanier: (state, action) => {
             state.panier.splice(action.payload, 1);
         }
     },
@@ -71,4 +71,5 @@ const globalSlice = createSlice({
     }
 })
 
+export const { addPanier, removePanier } = globalSlice.actions
 export default globalSlice.reducer; 

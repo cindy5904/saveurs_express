@@ -5,14 +5,14 @@
         flex-direction: column;
         align-items: center;
 
-        & .corps {
+        & .HomePages-Corps {
             width: 100%;
             background-image: url('../../assets/img/HOME.png');
             background-repeat: no-repeat;
             background-size: cover;
         }
 
-        & .hero {
+        & .HomePages-Hero {
             height: 600px;
             width: 100%;
             background: linear-gradient(rgb(12, 12, 12, 0.7), rgba(60, 60, 60, 0.6)), url('../../assets/img/image_homepage.jpg');
@@ -32,7 +32,7 @@
                     text-align: center;
                 }
 
-                & .Search-Bar {
+                & .HomePages-Hero-Search-Bar {
                     color: var(--color_secondary-dark);
                     padding: .5rem 1rem;
                     display: flex;
@@ -66,7 +66,7 @@
         }
 
 
-        & .Best-Menu {
+        & .HomePages-Corps-Best-Menu {
             max-width: 100vw;
             position: relative;
             width: 700px;
@@ -92,12 +92,9 @@
                     height: 350px;
                 }
             }
-
-
-
         }
 
-        & .card {
+        & .HomePages-Corps-Restaurants-Card {
             z-index: 1;
             position: relative;
             width: 80vw;
@@ -107,19 +104,23 @@
             justify-content: center;
         }
 
-        /* MOBILE */
-        @media screen and (min-width: 425px) and (max-width : 767px) {
-            #HomePages {}
-        }
 
-        /* TAB */
-        @media screen and (min-width: 768px) and (max-width : 1023px) {
-            #HomePages {}
+    }
 
-        }
 
-        /* LAPTOP */
-        @media screen and (min-width: 1024px) and (max-width : 1440px) {
-            #HomePages {}
-        }
+
+    /* MOBILE */
+    @media screen and (min-width: 425px) and (max-width : 767px) {
+        #HomePages {}
+    }
+
+    /* TAB */
+    @media screen and (min-width: 768px) and (max-width : 1023px) {
+        #HomePages {}
+
+    }
+
+    /* LAPTOP */
+    @media screen and (min-width: 1024px) and (max-width : 1440px) {
+        #HomePages {}
     }
