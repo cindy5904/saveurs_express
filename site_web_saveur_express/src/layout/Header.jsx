@@ -4,19 +4,13 @@ import { useState } from "react";
 
 
 const Header = ({ data }) => {
+
     const [cartCount, setCartCount] = useState(0);
-
-    return (
-        <header id='Header'>
-            <h1>Header</h1>
-        </header>
-    )
-}
-
 
     const handleAddToCart = () => {
       setCartCount(cartCount + 1);
     };
+    
   return (
     <header id="Header">
       <div className="header-left">
