@@ -2,8 +2,17 @@ import "./style/Header.css";
 import logo from "../assets/images/logolivraison.png";
 import { useState } from "react";
 
+
 const Header = ({ data }) => {
     const [cartCount, setCartCount] = useState(0);
+
+    return (
+        <header id='Header'>
+            <h1>Header</h1>
+        </header>
+    )
+}
+
 
     const handleAddToCart = () => {
       setCartCount(cartCount + 1);
