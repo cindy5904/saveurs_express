@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import './style/menuCard.css';
+import { addPanier } from '../Global/globalSlice';
+import { useDispatch } from 'react-redux'
+
 
 const MenuCard = ({ data }) => { 
-  const [cartCount, setCartCount] = useState(0);
+  const dispatch = useDispatch();
 
   const handleAddToCart = () => {
-    onAddToCart(data);
-    setCartCount(cartCount + 1);
+      dispatch(addPanier({ id: data.id, quantity: 1, nom: data.nom, prix: data.prix, image: data.image}));
   };
   return (
     <div id="card-menu" className="card">

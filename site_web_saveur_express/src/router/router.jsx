@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import HomePage from "../views/HomePage";
 import Layout from "../layout/Layout";
 import MenuList from "../components/menu/MenuList";
+import Commandes from "../components/Commandes/Commandes";
 
 const root = createBrowserRouter([
     {
@@ -15,6 +16,10 @@ const root = createBrowserRouter([
             {
                 path: '/menu',
                 element : <MenuList />
+            },
+            {
+                path : '/commandes',
+                element: <Commandes />
             }
         ]
     }
