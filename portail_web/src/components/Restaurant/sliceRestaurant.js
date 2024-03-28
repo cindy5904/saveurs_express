@@ -5,9 +5,8 @@ export const getRestaurantByUser = createAsyncThunk(
     "restaurant/getRestaurantByUser",
     async (userId, { rejectWithValue }) => {
         try {
-            console.log(typeof userId);
-            console.log(userId);
             const response = await server.get(`/restaurant/${userId}`);
+            console.log(response.data);
             return response.data;
         } catch (error) {
             return rejectWithValue(error.response.data.error.message);
@@ -53,8 +52,6 @@ const sliceRestaurant = createSlice({
             })
             .addCase(getRestaurantByUser.fulfilled, (state, action) => {
                 state.restaurant = action.payload;
-                console.log(action.payload);
-                console.log(state.restaurant);
                 state.status = "success";
             })
             .addCase(getRestaurantByUser.rejected, (state) => {

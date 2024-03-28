@@ -159,6 +159,21 @@ function FormSignUp() {
                         className={classes.input}
                     />
                 </div>
+
+                <div className={classes.formGroup}>
+                    <label htmlFor="motDePasse" className={classes.label}>
+                        Mot de passe
+                    </label>
+                    <input
+                        type="password"
+                        id="motDePasse"
+                        required
+                        ref={motDePasseRef}
+                        name="motDePasse"
+                        className={classes.input}
+                    />
+                </div>
+
                 <button type="submit">S'inscrire</button>
             </form>
         </div>

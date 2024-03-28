@@ -5,11 +5,13 @@
     border: 1px solid #ccc;
     border-radius: 5px;
     background-color: #f9f9f9;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
 }
 .title {
     font-size: var(--size-l);
     color: var(--color_secondary-dark);
-    margin-bottom: 10px;
+    margin-bottom: 1.5rem;
+    text-align: center;
 }
 .text {
     font-size: 16px;
