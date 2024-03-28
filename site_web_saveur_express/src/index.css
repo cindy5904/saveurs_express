@@ -26,6 +26,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Roboto';
 }
 
 h1 {
@@ -62,6 +63,19 @@ main {
   max-width: 100vw;
 }
 
+h1, h2, h3, h4, label {
+  font-family: 'Baloo Thamini 2', system-ui;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: italic;
+}
+ 
+p, input, select, li, a {
+  font-family: 'Roboto', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
 
 /* MOBILE */
 @media screen and (min-width: 200px) and (max-width : 767px) {
