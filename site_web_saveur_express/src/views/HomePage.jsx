@@ -1,3 +1,4 @@
+import MenuCard from "../components/menu/MenuCard"
 import "./style/HomePage.css"
 
 const HomePage = () => {
@@ -7,6 +8,7 @@ const HomePage = () => {
             <h2>H2</h2>
             <h3>H3</h3>
             <p>p</p>
+            <MenuCard/>
         </main>
     )
 }
