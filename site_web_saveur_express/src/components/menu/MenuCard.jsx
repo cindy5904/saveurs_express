@@ -9,17 +9,17 @@ const MenuCard = ({ data }) => {
     setCartCount(cartCount + 1);
   };
   return (
-    <div className="card">
+    <div id="card-menu" className="card">
       <div className="container-image">
-        <img src={data.image} alt={data.nom} className="card-image" />
+        <img src={data.image} alt={data.nom} className="card-image-menu" />
       </div>
-      <div className="card-content">
-        <h2>{data.nom}</h2>
+      <div className="card-content-menu">
+        <h2 className='title-h2-menu'>{data.nom}</h2>
         <p className='menu-text'>{data.description}</p>
         <p className='menu-text'>Prix: {data.prix}</p>
       </div>
       <div className="button-menu">
-      <button className="btn" onClick={handleAddToCart}>
+      <button className="btn-menu" onClick={handleAddToCart}>
         Commander
       </button>
       </div>
