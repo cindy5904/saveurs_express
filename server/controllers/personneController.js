@@ -7,7 +7,18 @@ const expiryDate = new Date(Date.now() + 60 * 60 * 7000);
 const personneController = {
   signUp: async function (req, res) {
     try {
-      const { nom, prenom, email, password, telephone, role, numero, rue, codePostal, ville } = req.body;
+      const {
+        nom,
+        prenom,
+        email,
+        password,
+        telephone,
+        role,
+        numero,
+        rue,
+        codePostal,
+        ville,
+      } = req.body;
 
       const rolesAutorises = ["client", "livreur", "restaurateur"];
 
@@ -28,7 +39,7 @@ const personneController = {
         role,
       });
 
-       const adresseUser = await Adresse.create({
+      const adresseUser = await Adresse.create({
         numero,
         rue,
         codePostal,
@@ -36,15 +47,12 @@ const personneController = {
         PersonneId: user.id,
       });
 
-      res.status(201).json({ user, adresseUser });
-      
+      res.status(201).json("Utilisateur créé avec succès");
     } catch (error) {
-      res
-        .status(400)
-        .json({
-          message: "Erreur lors de la création d'un nouvel utilisateur",
-          error: error.message,
-        });
+      res.status(400).json({
+        message: "Erreur lors de la création d'un nouvel utilisateur",
+        error: error.message,
+      });
     }
   },
 
@@ -53,6 +61,11 @@ const personneController = {
       const { email, password } = req.body;
       const user = await Personne.findOne({
         where: { email },
+        include : [
+          {
+            model: Adresse,
+          },
+        ]
       });
       const validPassword = await bcrypt.compare(password, user.password);
 
@@ -75,14 +88,22 @@ const personneController = {
         expires: expiryDate,
       });
 
-      res.json(user);
+      console.log("User connected: ", user);
+
+      res.status(201).json({
+        id: user.id,
+        nom: user.nom,
+        prenom: user.prenom,
+        email: user.email,
+        telephone: user.telephone,
+        role: user.role,
+        adresse: user.Adresses,
+      });
     } catch (error) {
-      res
-        .status(400)
-        .json({
-          message: "Erreur lors de l'authentification",
-          error: error.message,
-        });
+      res.status(400).json({
+        message: "Erreur lors de l'authentification",
+        error: error.message,
+      });
     }
   },
 
@@ -99,12 +120,10 @@ const personneController = {
       }
       res.json(user);
     } catch (error) {
-      res
-        .status(500)
-        .json({
-          message: "Erreur lors de la récupération du profil",
-          error: error.message,
-        });
+      res.status(500).json({
+        message: "Erreur lors de la récupération du profil",
+        error: error.message,
+      });
     }
   },
 };

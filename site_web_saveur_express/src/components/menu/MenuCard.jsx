@@ -4,7 +4,7 @@ import { addPanier } from '../Global/globalSlice';
 import { useDispatch, useSelector } from 'react-redux'
 
 
-const MenuCard = ({ data }) => { 
+const MenuCard = ({ data, view }) => {
   const dispatch = useDispatch();
   const panier = useSelector(state => state.global.panier);
   
@@ -30,9 +30,10 @@ const MenuCard = ({ data }) => {
         <p className='menu-text'>Prix: {data.prix}</p>
       </div>
       <div className="button-menu">
-      <button className="btn-menu" onClick={handleAddToCart}>
-        Commander
-      </button>
+        {(!view) ? <button className="btn-menu" onClick={handleAddToCart}>
+          Commander
+        </button> : <></>}
+
       </div>
     </div>
   );
