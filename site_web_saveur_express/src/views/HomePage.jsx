@@ -22,7 +22,7 @@ const HomePage = () => {
 
     return (
         <main id='HomePages' >
-
+            
             <section className="HomePages-Hero">
                 <cite>
                     <h1>Un Festin à portée de main ! </h1>
@@ -32,9 +32,7 @@ const HomePage = () => {
                         <button>Rechercher</button>
                     </form>
                 </cite>
-            </section>
-            {/* <button onClick={() => dispatch(addPanier({ id: Date.now() }))}>Add Panier</button>
-            {panier.map(({ id },index) => <div onClick={() => dispatch(removePanier(index))} key={id}><p>{id}</p></div>)} */}
+            </section> 
             <section className="HomePages-Corps">
 
                 <Presentation title={'Meilleurs Ventes'}>
