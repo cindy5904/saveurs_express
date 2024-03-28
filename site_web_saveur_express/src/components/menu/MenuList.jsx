@@ -17,25 +17,24 @@ const MenuList = () => {
 
   return (
     <>
-    <div className='header-menu'>
-      <img className="img-header-menu" src={menuImg} alt="image de menu" />
-      <h1 className='titre-menu'>Menus</h1>
+    <div className='header-menu-list'>
+      <img className="img-header-menu-list" src={menuImg} alt="image de menu" />
+      <h1 className='titre-menu-list'>Menus</h1>
     </div>
-    <div className="menu-search">
+    <div className="menu-search-list">
     <input type="text"
           placeholder="Rechercher un menu par nom..."
-          className='search'
+          className='search-menu-list'
           value={searchName}
           onChange={handleInputChange}
         />
       </div>
-      <div className="card-container">
+      <div className="card-container-menu-list">
         {filteredData.map(item => (
-          <MenuCard key={item.id} data={item} />
+          <MenuCard key={item.id} data={item} onAddToCart={handleAddToCart}/>
         ))}
       </div>
-      <div class="oval"></div>
-
+      <div class="oval-menu-list"></div>
     </>
   );
 };
