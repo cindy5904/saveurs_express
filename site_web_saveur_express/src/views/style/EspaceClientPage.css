@@ -1,0 +1,78 @@
+#EspaceClient {
+
+    & .EspaceClient-Header {
+        height: 200px;
+        background-color: var(--color_primary-light);
+        display: flex;
+        padding: 2rem;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    & .EspaceClient-AllCommande {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 6rem;
+        height: 700px;
+    }
+
+    & .Rond {
+        border-radius: 50%;
+        padding: 0.3rem;
+        width: 30px;
+        height: 30px;
+    }
+
+    & .EspaceClient-User-Informations {
+        width: 800px;
+
+        & .EspaceClient-User-Informations-Title {
+            width: 300px;
+            margin: 3rem;
+    
+            & h2 {
+                text-align: start;
+            }
+        }
+    
+        & .EspaceClient-User-Informations-Legend {
+            display: flex;
+            justify-content: start;
+            width: 950px;
+        }
+    
+        & .EspaceClient-User-Informations-Legend-element {
+            padding-bottom: 3rem;
+            display: flex;
+            width: 200px;
+            justify-content: space-evenly;
+    
+            & p {
+                text-align: center;
+            }
+        }
+    }
+
+    & .EspaceClient-User-Last{
+        padding-bottom: 2rem;
+        & hgroup{
+            width: 400px;
+            & h2{
+                text-align: start;
+            }
+        }
+    }
+
+    & .livre {
+        background-color: var(--succes);
+    }
+
+    & .encours {
+        background-color: var(--encours);
+    }
+
+    & .abandon {
+        background-color: var(--abandon);
+    }
+}

@@ -16,10 +16,17 @@
   --black: #151515;
   --gray: #C9C4C4;
 
+
+  --succes :#069203;
+  --encours :#F3AB1F;
+  --abandon: #F20000;
+
+
   --size-xs: 15px;
   --size-s: 20px;
   --size-l: 30px;
   --size-xl: 35px;
+
 }
 
 * {
@@ -59,7 +66,7 @@ li {
 }
 
 main {
-  min-height: 80vh;
+  min-height: 90vh;
   max-width: 100vw;
 }
 
