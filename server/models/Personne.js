@@ -1,15 +1,8 @@
-const { Model } = require("sequelize");
+const { DataTypes } = require("sequelize");
 
 module.exports = (sequelize) => {
-  class Personne extends Model {}
-
-  Personne.init(
+    const Personne = sequelize.define('Personne', 
     {
-      personneId: {
-        type: DataTypes.INTEGER,
-        primaryKey: true,
-        autoIncrement: true,
-      },
       nom: {
         type: DataTypes.STRING(50),
         allowNull: false,
@@ -30,10 +23,12 @@ module.exports = (sequelize) => {
         type: DataTypes.STRING(10),
         allowNull: false,
       },
+      role: {
+        type: DataTypes.STRING(255),
+        allowNull: false,
+      }
     },
     {
-      sequelize,
-      modelName: "Personne",
       timestamps: false,
       freezeTableName: true,
     }
