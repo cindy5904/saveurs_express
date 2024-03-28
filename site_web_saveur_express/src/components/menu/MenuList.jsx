@@ -31,7 +31,7 @@ const MenuList = () => {
       </div>
       <div className="card-container-menu-list">
         {filteredData.map(item => (
-          <MenuCard key={item.id} data={item} onAddToCart={handleAddToCart}/>
+          <MenuCard key={item.id} data={item} />
         ))}
       </div>
       <div class="oval-menu-list"></div>

@@ -1,0 +1,53 @@
+#LigneCommande {
+    position: relative;
+    border: none;
+    margin: .5rem 0;
+    z-index: 1;
+    width: 1000px;
+    height: 50px;
+    border-radius: 16px;
+    background-color: var(--color_secondary-light);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    & .LigneCommande-Etat {
+        left: -15px;
+        position: absolute;
+        border-radius: 50%;
+        padding: 0.3rem;
+        width: 30px;
+        height: 30px;
+    }
+
+    & .livre{
+        background-color: var(--succes);
+    }
+
+    & .encours{
+        background-color: var(--encours);
+    }
+
+    & .abandon{
+        background-color: var(--abandon);
+    }
+
+    & .LigneCommande-Information {
+        width: 100%;
+        display: flex;
+        padding: 0 5rem;
+        justify-content: space-between;
+    }
+
+}
+
+#LigneCommande:hover{
+    top: 3px;
+    background-color: var(--color_secondary-dark);
+    color: var(--white);
+    cursor: pointer;
+}
+
+#ligneCommande:active{
+    top:20px
+}
