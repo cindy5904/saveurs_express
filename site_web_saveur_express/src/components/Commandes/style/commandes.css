@@ -1,5 +1,121 @@
+.title-panier {
+    text-align: center;
+}
+.panier-vide {
+    font-size: 24px;
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 67vh;
+}
+
 .commandes-container {
-    & h2 {
-        text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    & .contenu-total {
+        width: 350px;
+        background-color: #f1f0ef;
+        padding: 20px;
+        border-radius: 5px;
+        line-height: 21px;
+        & .total-produit {
+            display: flex;
+            justify-content: space-between;
+
+        }
+        & .frais-livraison {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+
+        }
+        & .total-panier-livraison {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+
+            & .text-total-panier {
+                font-size: 16px;
+                font-weight: bold;
+            }
+        }
+
+        & .btn-validate-container {
+            text-align: center;
+            margin-top: 30px;
+
+            & .btn-validate {
+                background-color: #011532;
+                color: #ccc;
+                border: none;
+                border-radius: 10px;
+                padding : 8px 12px 8px 12px;
+                font-size: 16px;
+            }
+        }
     }
+}
+.panier-card-container {
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    margin-bottom: 40px;
+    align-items: center;
+
+    & .panier-card-menu {
+        width: 650px;
+        height: 180px;
+        margin-bottom: 30px;
+        border-radius: 5px;
+        overflow: hidden;
+        display: flex;
+        background-color: #ffeecc;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+    }
+
+    & .panier-image {
+        width: 250px;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    & .panier-content {
+        padding: 10px;
+        width: 50%;
+        flex-direction: column;
+    }
+
+    & h3 {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    & p {
+       margin-left: 15px; 
+       line-height: 25px;
+    }
+    & .prix-panier {
+        color: red;
+        font-weight: bold;
+    }
+
+    & .number-panier {
+        width: 35px;
+        padding-left: 3px;
+    }
+
+    & .quantite-panier {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        margin-right: 20px;
+        /* margin-top: 20px; */
+    }
+
+    
+
+
+    
 }
