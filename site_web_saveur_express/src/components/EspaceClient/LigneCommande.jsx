@@ -1,16 +1,37 @@
+import { useEffect } from 'react'
 import './style/LigneCommande.css'
-const LigneCommande = () => {
+const LigneCommande = ({ id, dateCommande, status, prix, quantite, modal, menu }) => {
 
-    const color = 'livre'
+
+    function etat(etat) {
+        switch (etat) {
+            case "livrée":
+                return 'livre'
+            case "Annulé":
+                return 'abandon'
+            default:
+                return 'encours'
+        }
+    }
+
+    const newData = {
+        id,
+        dateCommande,
+        menu,
+        status: etat(status),
+        prix,
+        quantite,
+    }
+    const color = etat(status)
 
     return (
-        <button id='LigneCommande'>
+        <button id='LigneCommande' onClick={() => (modal({ open: true, data: newData }))}>
             <div className={`LigneCommande-Etat ${color}`}></div>
 
             <div className="LigneCommande-Information">
-                <p>Cmd : 123456789</p>
-                <p>3 Articles</p>
-                <p>25 €</p>
+                <p>Cmd : {id}</p>
+                <p>{quantite} Articles</p>
+                <p>{prix} €</p>
             </div>
 
         </button>
