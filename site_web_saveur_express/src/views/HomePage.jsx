@@ -1,3 +1,4 @@
+import MenuCard from "../components/menu/MenuCard"
 import "./style/HomePage.css"
 import CardRestaurant from "../components/Restaurant/CardRestaurant"
 import Presentation from "../components/Global/Presentation"
@@ -20,6 +21,7 @@ const HomePage = () => {
 
     return (
         <main id='HomePages'>
+
             <section className="hero">
                 <cite>
                     <h1>Un Festin à portée de main ! </h1>
