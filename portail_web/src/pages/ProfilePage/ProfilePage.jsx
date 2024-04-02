@@ -34,19 +34,23 @@ function ProfilePage() {
                 <>
                     <UserInfos />
 
-                    {restaurant ? (
+                    {restaurant.length !== 0 && (
                         <>
                             <CardRestaurant restaurant={restaurant} />
-                            <Link to={`/restaurant/${restaurant.id}`}>
-                                Voir le restaurant
-                            </Link>
+                            <button className={classes.button}>
+                                <Link
+                                    className={classes.buttonText}
+                                    to={`/restaurant/${restaurant.id}`}
+                                >
+                                    Voir le restaurant
+                                </Link>
+                            </button>
                         </>
-                    ) : (
-                        <FormRestaurant
-                            userId={user.id}
-                            onRestaurantAdded={() => setRestaurantAdded(true)}
-                        />
                     )}
+                    <FormRestaurant
+                        userId={user.id}
+                        onRestaurantAdded={() => setRestaurantAdded(true)}
+                    />
                 </>
             ) : (
                 <p className={classes.text}>

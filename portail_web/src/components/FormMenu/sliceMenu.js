@@ -5,7 +5,7 @@ export const createMenu = createAsyncThunk(
     "menu/createMenu",
     async (menu, { rejectWithValue }) => {
         try {
-            const response = await server.post("/create-menu", menu);
+            const response = await server.post("/menu/create", menu);
             return response.data;
         } catch (error) {
             return rejectWithValue(error.response.data.error.message);

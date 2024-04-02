@@ -18,11 +18,13 @@ function FormMenu({ restaurantId, userId }) {
         const nom = nomInputRef.current.value;
         const prix = prixInputRef.current.value;
         const description = descriptionInputRef.current.value;
+        const img = event.target.image.value;
 
         const menu = {
             nom,
             prix,
             description,
+            img,
             restaurantId,
             userId,
         };
@@ -44,6 +46,7 @@ function FormMenu({ restaurantId, userId }) {
                         required
                         name="nom"
                         className={classes.input}
+                        ref={nomInputRef}
                     />
                 </div>
                 <div className={classes.formGroup}>
@@ -67,6 +70,7 @@ function FormMenu({ restaurantId, userId }) {
                         required
                         name="prix"
                         className={classes.input}
+                        ref={prixInputRef}
                     />
                 </div>
                 <div className={classes.formGroup}>
@@ -78,6 +82,7 @@ function FormMenu({ restaurantId, userId }) {
                         required
                         name="description"
                         className={classes.input}
+                        ref={descriptionInputRef}
                     />
                 </div>
                 <button className={classes.button} type="submit">
