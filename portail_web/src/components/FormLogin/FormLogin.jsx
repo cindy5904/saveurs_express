@@ -15,12 +15,12 @@ function Form() {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        dispatch(
-            login({
-                email: emailRef.current.value,
-                password: motDePasseRef.current.value,
-            }),
-        );
+        const user = {
+            email: emailRef.current.value,
+            password: motDePasseRef.current.value,
+        };
+
+        dispatch(login(user));
         emailRef.current.value = "";
         motDePasseRef.current.value = "";
     };

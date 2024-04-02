@@ -7,6 +7,7 @@ const Header = () => {
   const navigate = useNavigate();
   const panier = useSelector((state) => state.global.panier);
   const cartCount = panier.reduce((total, item) => total + item.quantity, 0);
+  
   return (
     <header id="Header">
       <div className="header-left">

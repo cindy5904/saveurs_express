@@ -21,6 +21,7 @@ const MenuList = () => {
       <img className="img-header-menu-list" src={menuImg} alt="image de menu" />
       <h1 className='titre-menu-list'>Menus</h1>
     </div>
+    <div className="container-main-menu-list">
     <div className="menu-search-list">
     <input type="text"
           placeholder="Rechercher un menu par nom..."
@@ -34,7 +35,7 @@ const MenuList = () => {
           <MenuCard key={item.id} data={item} />
         ))}
       </div>
-      <div class="oval-menu-list"></div>
+      </div>
     </>
   );
 };

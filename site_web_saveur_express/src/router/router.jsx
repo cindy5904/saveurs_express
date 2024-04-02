@@ -5,6 +5,7 @@ import MenuList from "../components/menu/MenuList";
 import Commandes from "../components/Commandes/Commandes";
 import EspaceClientPage from "../views/EspaceClientPage";
 import ProtectedRoute from "../middleware/ProtectedRoute";
+import Commandes from "../components/Commandes/Commandes";
 
 
 const root = createBrowserRouter([
@@ -21,7 +22,8 @@ const root = createBrowserRouter([
                 element: <MenuList />
             },
             {
-                path: '/commande',
+
+                path: 'commandes',
                 element: <Commandes />
             }
         ]

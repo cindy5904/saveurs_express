@@ -91,6 +91,7 @@ const personneController = {
       console.log("User connected: ", user);
 
       res.status(201).json({
+        id: user.id,
         nom: user.nom,
         prenom: user.prenom,
         email: user.email,
