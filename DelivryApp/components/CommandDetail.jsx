@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import {
   View,
   Text,
@@ -6,12 +6,13 @@ import {
   Image,
   Linking,
   TouchableOpacity,
+  ScrollView,
 } from 'react-native';
-import {Picker} from '@react-native-picker/picker';
+import { Picker } from '@react-native-picker/picker';
 
 
-const CommandDetail = ({route}) => {
-  const {command} = route.params;
+const CommandDetail = ({ route }) => {
+  const { command } = route.params;
   const HorizontalLine = () => {
     return <View style={styles.hr} />;
   };
@@ -22,12 +23,14 @@ const CommandDetail = ({route}) => {
     0,
   );
 
-  const handleOpenMaps = address => {
+  // Fonction pour ouvrir Google Maps avec l'adresse spécifique
+  const handleOpenMaps = (address) => {
     const formattedAddress = encodeURIComponent(address);
     const url = `https://www.google.com/maps/search/?api=1&query=${formattedAddress}`;
 
     Linking.openURL(url);
   };
+
   const [menuVisible, setMenuVisible] = useState(false);
   const etatsCommande = ['', 'Annulée', 'Retirée', 'Livrée', 'En retard'];
   const [pastilleColor, setPastilleColor] = useState('transparent');
@@ -54,6 +57,7 @@ const CommandDetail = ({route}) => {
     setMenuVisible(!menuVisible);
   };
   return (
+    <ScrollView>
     <View style={styles.container}>
       <View style={styles.containerHeaderId}>
         <Text style={styles.containerHeaderIdText}>Numéro de commande: {command.id}</Text>
@@ -61,7 +65,7 @@ const CommandDetail = ({route}) => {
       <Text style={styles.title}>Détails de la commande</Text>
       <View style={styles.statusContainer}>
         <Text style={styles.statusLabel}>Statut:</Text>
-        <View style={[styles.pastille, {backgroundColor: pastilleColor}]} />
+        <View style={[styles.pastille, { backgroundColor: pastilleColor }]} />
       </View>
       <View style={styles.containerContent}>
         <View style={styles.container1}>
@@ -88,15 +92,15 @@ const CommandDetail = ({route}) => {
           </View>
           <HorizontalLine />
           <View style={styles.cardContainer}>
-          <View style={styles.section}>
-            <Text style={styles.label}>Prix:</Text>
-            <Text style={styles.detail}>{prixTotal.toFixed(2)}€</Text>
-          </View>
+            <View style={styles.section}>
+              <Text style={styles.label}>Prix:</Text>
+              <Text style={styles.detail}>{prixTotal.toFixed(2)}€</Text>
+            </View>
 
-          <View style={styles.section}>
-            <Text style={styles.label}>Quantité:</Text>
-            <Text style={styles.detail}>{command.menu.length}</Text>
-          </View>
+            <View style={styles.section}>
+              <Text style={styles.label}>Quantité:</Text>
+              <Text style={styles.detail}>{command.menu.length}</Text>
+            </View>
           </View>
           <View style={styles.sectionPicker}>
             <Text style={styles.label}>État de la commande:</Text>
@@ -116,34 +120,35 @@ const CommandDetail = ({route}) => {
             style={styles.menuButton}>
             <Text style={styles.menuButtonText}>Détails Menu</Text>
           </TouchableOpacity>
-          <View  style={styles.menuContainerCard}>
-          {menuVisible &&
-            command.menu &&
-            command.menu.map((menuItem, index) => (
-              <View key={index} style={styles.menuContainer}>
-                <Image
-                  source={{uri: menuItem.image}}
-                  style={styles.menuImage}
-                />
-                <View style={styles.menuDetails}>
-                  <Text style={styles.menuName}>{menuItem.nom}</Text>
-                  <Text style={styles.menuPrice}>{menuItem.prix} €</Text>
-                  <Text style={styles.menuDescription}>
-                    {menuItem.description}
-                  </Text>
+          <View style={styles.menuContainerCard}>
+            {menuVisible &&
+              command.menu &&
+              command.menu.map((menuItem, index) => (
+                <View key={index} style={styles.menuContainer}>
+                  <Image
+                    source={{ uri: menuItem.image }}
+                    style={styles.menuImage}
+                  />
+                  <View style={styles.menuDetails}>
+                    <Text style={styles.menuName}>{menuItem.nom}</Text>
+                    <Text style={styles.menuPrice}>{menuItem.prix} €</Text>
+                    <Text style={styles.menuDescription}>
+                      {menuItem.description}
+                    </Text>
+                  </View>
                 </View>
-              </View>
-            ))}
-            </View>
+              ))}
+          </View>
         </View>
         <TouchableOpacity style={styles.link} onPress={() => handleOpenMaps(command.adresse)}>
-                <Text style={styles.textLink}>
-                  Accèder à la carte
-                </Text>
-      </TouchableOpacity>
+          <Text style={styles.textLink}>
+            Accèder à l'adresse de livraison
+          </Text>
+        </TouchableOpacity>
       </View>
-      
+
     </View>
+    </ScrollView>
   );
 };
 
@@ -180,7 +185,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#ffeecc',
     borderRadius: 10,
     shadowColor: '#000000',
-    shadowOffset: {width: 0, height: 2},
+    shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.2,
     shadowRadius: 4,
     elevation: 4,
@@ -235,7 +240,7 @@ const styles = StyleSheet.create({
   link: {
     alignItems: 'center',
     justifyContent: 'center',
-    paddingVertical: 10, 
+    paddingVertical: 10,
     borderRadius: 5,
     width: 200,
     marginTop: 40,
@@ -248,10 +253,10 @@ const styles = StyleSheet.create({
   hr: {
     borderBottomColor: 'black',
     borderBottomWidth: 1,
-    marginVertical: 10, 
+    marginVertical: 10,
   },
   menuContainerCard: {
-    
+
   },
   menuContainer: {
     flexDirection: 'row',
@@ -284,8 +289,9 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
   },
-  pickerItem : {
-    fontSize: 15
+  pickerItem: {
+    fontSize: 15,
+    backgroundColor: '#ffeecc',
 
   },
   etatItem: {
@@ -294,12 +300,14 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     marginBottom: 5,
   },
-  
+
   picker: {
     height: 40,
-    width: '100%',
+    width: '50%',
     borderColor: '#ccc',
     borderWidth: 1,
+    borderRadius: 5,
+    backgroundColor: '#ffeecc',
     borderRadius: 5,
   },
   pastille: {
