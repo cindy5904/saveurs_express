@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 import {Picker} from '@react-native-picker/picker';
 
+
 const CommandDetail = ({route}) => {
   const {command} = route.params;
   const HorizontalLine = () => {
@@ -87,7 +88,6 @@ const CommandDetail = ({route}) => {
           </View>
           <HorizontalLine />
           <View style={styles.cardContainer}>
-
           <View style={styles.section}>
             <Text style={styles.label}>Prix:</Text>
             <Text style={styles.detail}>{prixTotal.toFixed(2)}€</Text>
@@ -279,12 +279,14 @@ const styles = StyleSheet.create({
   menuDescription: {
     fontSize: 14,
   },
+
   sectionPicker: {
     flexDirection: 'row',
     alignItems: 'center',
   },
   pickerItem : {
     fontSize: 15
+
   },
   etatItem: {
     paddingHorizontal: 10,

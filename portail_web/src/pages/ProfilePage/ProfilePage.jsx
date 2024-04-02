@@ -1,10 +1,12 @@
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 // import { Navigate } from "react-router-dom";
 
-import { getRestaurantByUser } from "../../components/Restaurant/sliceRestaurant";
+import { getRestaurantByUser } from "../../components/FormRestaurant/sliceRestaurant";
 
-import FormRestaurant from "../../components/Restaurant/FormRestaurant";
+import FormRestaurant from "../../components/FormRestaurant/FormRestaurant";
+import CardRestaurant from "../../components/CardRestaurant/CardRestaurant";
 import UserInfos from "../../components/UserInfos/UserInfos";
 import classes from "./ProfilePage.module.css";
 
@@ -33,27 +35,12 @@ function ProfilePage() {
                     <UserInfos />
 
                     {restaurant ? (
-                        <section className={classes.section}>
-                            <h2 className={classes.subtitle}>Votre restaurant</h2>
-                            <p className={classes.nom}>{restaurant.nom}</p>
-                            <p className={classes.text}>
-                                Note moyenne : {restaurant.notation}
-                            </p>
-                            <p className={classes.text}>
-                                Spécialité : {restaurant.specialite}
-                            </p>
-                            <img
-                                className={classes.image}
-                                src={restaurant.image}
-                                alt={restaurant.nom}
-                            />
-                            {user.adresse.map((adresse) => (
-                                <p key={adresse.id} className={classes.text}>
-                                    {adresse.numero} {adresse.rue}{" "}
-                                    {adresse.codePostal} {adresse.ville}
-                                </p>
-                            ))}
-                        </section>
+                        <>
+                            <CardRestaurant restaurant={restaurant} />
+                            <Link to={`/restaurant/${restaurant.id}`}>
+                                Voir le restaurant
+                            </Link>
+                        </>
                     ) : (
                         <FormRestaurant
                             userId={user.id}

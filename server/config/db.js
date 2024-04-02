@@ -21,18 +21,20 @@ const Adresse = require("../models/Adresse")(sequelize);
 const Personne = require("../models/Personne")(sequelize);
 
 
-
 Restaurant.hasMany(Performance);
-Performance.belongsTo(Restaurant)
+Performance.belongsTo(Restaurant);
 
 Restaurant.hasMany(Adresse);
-Adresse.belongsTo(Restaurant)
+Adresse.belongsTo(Restaurant);
 
 Personne.hasMany(Commande);
-Commande.belongsTo(Personne)
+Commande.belongsTo(Personne);
 
 Personne.hasMany(Menu);
 Menu.belongsTo(Personne);
+
+Restaurant.hasMany(Menu);
+Menu.belongsTo(Restaurant);
 
 Personne.belongsTo(Restaurant);
 Restaurant.hasMany(Personne);

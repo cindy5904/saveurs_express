@@ -1,0 +1,47 @@
+[
+    {
+        "nom": "Le Petit Gourmet",
+        "notation": 4.5,
+        "specialite": "Cuisine française",
+        "image": "https://www.halal-sphere.com/wp-content/uploads/2017/01/1236362_484146258348797_1105284072_n.jpg",
+        "adresse": [
+            {
+                "id": 1,
+                "numero": 12,
+                "rue": "Rue de la Paix",
+                "codePostal": 75002,
+                "ville": "Paris"
+            }
+        ]
+    },
+    {
+        "nom": "La Bella Italia",
+        "notation": 4.7,
+        "specialite": "Cuisine italienne",
+        "image": "https://media-cdn.tripadvisor.com/media/photo-s/07/9f/48/a0/east-mamma.jpg",
+        "adresse": [
+            {
+                "id": 2,
+                "numero": 45,
+                "rue": "Rue du Faubourg Saint-Antoine",
+                "codePostal": 75011,
+                "ville": "Paris"
+            }
+        ]
+    },
+    {
+        "nom": "El Rincon Espanol",
+        "notation": 4.3,
+        "specialite": "Cuisine espagnole",
+        "image": "https://media-cdn.tripadvisor.com/media/photo-w/0d/17/89/aa/interior.jpg",
+        "adresse": [
+            {
+                "id": 3,
+                "numero": 30,
+                "rue": "Rue Saint-Georges",
+                "codePostal": 75009,
+                "ville": "Paris"
+            }
+        ]
+    }
+]

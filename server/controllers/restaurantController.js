@@ -53,7 +53,7 @@ const restaurantController = {
                 return res.status(404).json({ message: "Utilisateur non trouvé" });
             }
 
-            const restaurant = await Restaurant.findOne({ where: { id: user.RestaurantId },
+            const restaurant = await Restaurant.findAll({ where: { id: user.RestaurantId },
                 include: {
                     model: Adresse,
                 },
