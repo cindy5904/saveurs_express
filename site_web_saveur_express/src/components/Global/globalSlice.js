@@ -55,6 +55,17 @@ const globalSlice = createSlice({
         },
         removePanier: (state, action) => {
             state.panier.splice(action.payload, 1);
+        },
+        removeMenu: (state, action) => {
+            const { id } = action.payload;
+            const existingItem = state.panier.find((item) => item.id === id);
+            if (existingItem) {
+                if (existingItem.quantity > 1) {
+                    existingItem.quantity -= 1;
+                } else {
+                    state.panier = state.panier.filter((item) => item.id !== id);
+                }
+            }
         }
     },
     extraReducers: (builder) => {
@@ -71,5 +82,5 @@ const globalSlice = createSlice({
     }
 })
 
-export const { addPanier, removePanier } = globalSlice.actions
+export const { addPanier, removePanier, removeMenu   } = globalSlice.actions
 export default globalSlice.reducer; 

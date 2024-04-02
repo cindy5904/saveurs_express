@@ -2,8 +2,8 @@ import "./style/HomePage.css"
 import CardRestaurant from "../components/Restaurant/CardRestaurant"
 import Presentation from "../components/Global/Presentation"
 import { useDispatch, useSelector } from "react-redux"
-import { useEffect, useState } from "react"
-import { addPanier, fetchAllRestaurateur, removePanier } from "../components/Global/globalSlice"
+import { useEffect } from "react"
+import { fetchAllRestaurateur } from "../components/Global/globalSlice"
 
 
 const HomePage = () => {
@@ -13,16 +13,13 @@ const HomePage = () => {
         data: useSelector((state) => state.global.restaurants.data),
         loading: useSelector((state) => state.global.restaurants.loading)
     }
-    const panier = useSelector((state) => state.global.panier)
-    console.log(panier);
     useEffect(() => {
         dispatch(fetchAllRestaurateur())
-
     }, [])
 
     return (
         <main id='HomePages' >
-            
+        
             <section className="HomePages-Hero">
                 <cite>
                     <h1>Un Festin à portée de main ! </h1>

@@ -4,7 +4,6 @@ import "./style/commandes.css";
 
 const Commandes = () => {
     const panier = useSelector(state => state.global.panier);
-    console.log(panier)
 
     return ( 
         <div className="commandes-container">
