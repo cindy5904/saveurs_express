@@ -5,9 +5,11 @@ import trash from "../../assets/images/svg/trash.svg";
 import { removeMenu } from "../Global/globalSlice";
 
 const Commandes = () => {
+
   const panier = useSelector((state) => state.global.panier);
   const dispatch = useDispatch();
   const livraison = 4;
+
 
 
   const handleQuantityChange = (itemId, newQuantity) => {

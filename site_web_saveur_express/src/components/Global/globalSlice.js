@@ -48,6 +48,7 @@ const globalSlice = createSlice({
       loading: false,
       data: [],
     },
+
     panier: [],
     darkMode: false,
   },
@@ -72,6 +73,7 @@ const globalSlice = createSlice({
           existingItem.quantity -= 1;
         } else {
           state.panier = state.panier.filter((item) => item.id !== id);
+
         }
       }
     },
@@ -89,6 +91,7 @@ const globalSlice = createSlice({
     });
   },
 });
+
 
 export const { addPanier, removePanier, removeMenu } = globalSlice.actions;
 export default globalSlice.reducer;

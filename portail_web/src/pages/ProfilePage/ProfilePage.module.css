@@ -41,3 +41,18 @@
     font-size: var(--size-m);
     text-align: center;
 }
+
+.button {
+    width: 200px;
+    padding: 10px;
+    margin: 20px auto;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--color_primary);
+}
+
+.buttonText {
+    text-align: center;
+    font-size: var(--size-m);
+    color: white;
+}
