@@ -7,6 +7,8 @@ import {
   Linking,
   TouchableOpacity,
   ScrollView,
+  Button,
+  Pressable
 } from 'react-native';
 import { Picker } from '@react-native-picker/picker';
 
@@ -30,6 +32,7 @@ const CommandDetail = ({ route }) => {
 
     Linking.openURL(url);
   };
+
 
   const [menuVisible, setMenuVisible] = useState(false);
   const etatsCommande = ['', 'Annulée', 'Retirée', 'Livrée', 'En retard'];
@@ -85,8 +88,14 @@ const CommandDetail = ({ route }) => {
               <Text style={styles.detail}>{command.nomClient}</Text>
             </View>
             <View style={styles.section}>
-              <Text style={styles.label}>Téléphone:</Text>
-              <Text style={styles.detail}>0789898989</Text>
+              
+              <TouchableOpacity
+            onPress={() => Linking.openURL(`tel:${command.telephone}`)}
+            style={styles.menuButton}>
+            <Text style={styles.label}>Téléphone:</Text>
+            <Text style={styles.detail}>{command.telephone}</Text>
+          </TouchableOpacity>
+              
 
             </View>
           </View>
