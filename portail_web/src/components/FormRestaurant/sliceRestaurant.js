@@ -32,7 +32,7 @@ export const createRestaurant = createAsyncThunk(
 const sliceRestaurant = createSlice({
     name: "restaurant",
     initialState: {
-        restaurant: null,
+        restaurant: [],
         status: null,
     },
     extraReducers: (builder) => {
