@@ -5,6 +5,7 @@ import { createMaterialBottomTabNavigator } from '@react-navigation/material-bot
 import CommandList from './components/CommandList';
 import CommandCard from './components/CommandCard';
 import CommandDetail from './components/CommandDetail';
+import LivreurAccepteCommande from './components/LivreurAccepteCommande';
 
 const Stack = createNativeStackNavigator();
 const Tab = createMaterialBottomTabNavigator();
@@ -18,15 +19,15 @@ const App = () => {
           component={CommandList}
           options={{ title: 'Commandes' }}
         />
-        {/* <Stack.Screen
-          name="CommandDetail"
-          component={CommandCard}
-          options={{ title: 'Details Commande' }}
-        /> */}
+        <Stack.Screen
+          name="LivreurAccepteCommande"
+          component={LivreurAccepteCommande}
+          options={{ title: 'Accepter la commande' }}
+        />
         <Stack.Screen
           name="CommandDetail"
           component={CommandDetail}
-          options={{ title: 'Details Commande' }}
+          options={{ title: 'commande détails' }}
         />
       </Stack.Navigator>
     </NavigationContainer>
