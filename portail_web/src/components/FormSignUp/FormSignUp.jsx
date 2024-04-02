@@ -137,7 +137,7 @@ function FormSignUp() {
                         Téléphone
                     </label>
                     <input
-                        type="text"
+                        type="tel"
                         id="phone"
                         required
                         ref={phoneRef}

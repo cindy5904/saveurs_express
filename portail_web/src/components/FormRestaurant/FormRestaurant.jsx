@@ -9,7 +9,6 @@ function FormRestaurant({ userId }) {
     const dispatch = useDispatch();
 
     const nomRef = useRef(null);
-    const notationRef = useRef(null);
     const specialiteRef = useRef(null);
     const imgRef = useRef(null);
     const numeroRef = useRef(null);
@@ -21,7 +20,6 @@ function FormRestaurant({ userId }) {
         e.preventDefault();
         const newRestaurant = {
             nom: nomRef.current.value,
-            notation: notationRef.current.value,
             specialite: specialiteRef.current.value,
             image: imgRef.current.value,
             numero: numeroRef.current.value,
@@ -34,7 +32,6 @@ function FormRestaurant({ userId }) {
         dispatch(createRestaurant(newRestaurant));
 
         nomRef.current.value = "";
-        notationRef.current.value = "";
         specialiteRef.current.value = "";
         numeroRef.current.value = "";
         rueRef.current.value = "";
@@ -56,19 +53,6 @@ function FormRestaurant({ userId }) {
                         required
                         ref={nomRef}
                         name="nom"
-                        className={classes.input}
-                    />
-                </div>
-                <div className={classes.formGroup}>
-                    <label htmlFor="notation" className={classes.label}>
-                        Notation
-                    </label>
-                    <input
-                        type="number"
-                        id="notation"
-                        required
-                        ref={notationRef}
-                        name="notation"
                         className={classes.input}
                     />
                 </div>

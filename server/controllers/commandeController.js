@@ -31,8 +31,6 @@ const commandeController = {
                 });
             }
 
-
-
             const commandeUpdated = await Commande.findOne({
                 where: {
                     id: commande.id, 
@@ -44,11 +42,7 @@ const commandeController = {
                        },
                    ]
                 })
-            
 
-
-
-            
             res.status(201).json(
                 { 
                     message: "commande créé avec succès" , 
