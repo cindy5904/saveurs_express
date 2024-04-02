@@ -59,6 +59,7 @@ const styles = StyleSheet.create({
         height: 60,
         alignItems: 'center',
         justifyContent: 'center',
+        width: '100%'
     
       },
       containerHeaderIdText: {
