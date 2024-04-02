@@ -2,17 +2,17 @@ import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 
 const CommandCard = ({ command, onPress }) => {
+  
   return (
     <TouchableOpacity onPress={() => onPress(command)} style={styles.card}>
       <View style={styles.content}>
         <View style={styles.upContent}>
           <Text style={styles.date}>Numéro de commande: {command.id}</Text>
-          <Text style={styles.date}>Date de commande: {command.dateCommande}</Text>
-          <Text style={styles.status}>Statut: {command.status}</Text>
         </View>
         <View style={styles.downContent}>
-          <Text style={styles.price}>Prix: {command.prix}</Text>
-          <Text style={styles.quantity}>Quantité: {command.menu.length}</Text>
+        <Text style={styles.quantity}>{command.menu.length} articles</Text>
+
+          <Text style={styles.price}>{command.prix} €</Text>
         </View>
       </View>
     </TouchableOpacity>
@@ -21,23 +21,26 @@ const CommandCard = ({ command, onPress }) => {
 
 const styles = StyleSheet.create({
   card: {
-    backgroundColor: '#84B4FC',
-    borderRadius: 10,
-    marginHorizontal: 10,
-    marginVertical: 5,
-    elevation: 3, // Pour l'ombre
+     marginTop: 15,
   },
   content: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    padding: 15,
+    flexDirection: 'column',
+    paddingHorizontal: 10,
   },
   upContent: {
-    flex: 1,
+    backgroundColor: '#84B4FC',
+    marginHorizontal: 10,
+    paddingVertical: 10,
+    paddingHorizontal: 10,
+    elevation: 3,
   },
   downContent: {
-    flex: 1,
-    alignItems: 'flex-end',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginHorizontal: 10,
+    paddingVertical: 10,
+    paddingHorizontal: 10,
+    backgroundColor: '#cde1fe'
   },
   date: {
     fontSize: 16,
