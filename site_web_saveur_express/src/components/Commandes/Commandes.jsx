@@ -93,7 +93,7 @@ const Commandes = () => {
               <hr />
               <div className="total-panier-livraison">
                 <p className="text-total-panier">Total:</p>
-                <p className="text-total-panier">{prixTotalLivraison} €</p>
+                <p className="text-total-panier">{prixTotalLivraison.toFixed(2)} €</p>
               </div>
               <div className="btn-validate-container">
                 <button className="btn-validate">Valider ma commande</button>
