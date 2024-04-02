@@ -5,6 +5,7 @@ import Commandes from '../Data/commande.json'
 import './style/EspaceClientPage.css'
 
 const EspaceClientPage = () => {
+    document.title = 'Saveur Express | Accueil'
     const [modalCommande, setModalCommande] = useState({
         data: {},
         open: false
