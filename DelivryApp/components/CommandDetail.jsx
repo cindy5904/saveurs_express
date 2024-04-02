@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Text, StyleSheet, Image, Linking, TouchableOpacity } from 'react-native';
 
 const CommandDetail = ({ route }) => {
@@ -14,6 +14,19 @@ const CommandDetail = ({ route }) => {
     const url = `https://www.google.com/maps/search/?api=1&query=${formattedAddress}`;
 
     Linking.openURL(url);
+  };
+
+  // Tableau des états de la commande
+  const etatsCommande = [ 'Annulée', 'Retirée','Livrée',];
+
+  // État local pour stocker l'index de l'état actuel de la commande
+  const [selectedEtatIndex, setSelectedEtatIndex] = useState(etatsCommande.indexOf(command.status));
+
+  // Fonction pour mettre à jour l'état de la commande
+  const handleChangeEtatCommande = (index) => {
+    // Mettre à jour l'index de l'état local
+    setSelectedEtatIndex(index);
+    // Mettre à jour l'état de la commande dans le store Redux ou effectuer toute autre action nécessaire
   };
 
   return (
@@ -34,7 +47,7 @@ const CommandDetail = ({ route }) => {
         </View>
         <View style={styles.section}>
           <Text style={styles.label}>Statut:</Text>
-          <Text style={styles.detail}>{command.status}</Text>
+          <Text style={styles.detail}>{etatsCommande[selectedEtatIndex]}</Text>
         </View>
         <View style={styles.section}>
           <Text style={styles.label}>Prix:</Text>
@@ -49,6 +62,16 @@ const CommandDetail = ({ route }) => {
         <View style={styles.section}>
           <Text style={styles.label}>Quantité:</Text>
           <Text style={styles.detail}>{command.menu.length}</Text>
+        </View>
+        <View style={styles.section}>
+          <Text style={styles.label}>État de la commande:</Text>
+          <View style={styles.etatContainer}>
+            {etatsCommande.map((etat, index) => (
+              <TouchableOpacity key={index} onPress={() => handleChangeEtatCommande(index)} style={[styles.etatItem, index === selectedEtatIndex && styles.selected]}>
+                <Text>{etat}</Text>
+              </TouchableOpacity>
+            ))}
+          </View>
         </View>
         {command.menu && command.menu.map((menuItem, index) => (
           <View key={index} style={styles.section}>
@@ -127,6 +150,20 @@ const styles = StyleSheet.create({
   },
   menuDescription: {
     fontSize: 14,
+  },
+  etatContainer: {
+    flexDirection: 'column',
+  },
+  etatItem: {
+    paddingHorizontal: 10,
+    paddingVertical: 5,
+    borderRadius: 5,
+    backgroundColor: '#eee',
+    marginBottom: 5,
+  },
+  selected: {
+    backgroundColor: 'blue',
+    color: 'white',
   },
 });
 
